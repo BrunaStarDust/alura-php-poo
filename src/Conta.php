@@ -16,10 +16,10 @@ class Conta
 
     public function saca($valorSacado)
     {
-        if ($valorSacado > $this->getSaldo()) {
+        if ($valorSacado > $this->saldo) {
             echo "<p>Você não pode sacar</p>";
         } else {
-            $this->setSaldo($this->getSaldo() - $valorSacado);
+            $this->saldo -= $valorSacado;
             echo "<p>Saque realizado com sucesso!</p>";
         }
     }
@@ -29,14 +29,14 @@ class Conta
         if ($valorDepositado < 0) {
             echo "<p>Você só pode depositar um valor positivo</p>";
         } else {
-            $this->setSaldo($this->getSaldo() + $valorDepositado);
+            $this->saldo += $valorDepositado;
             echo "<p>Depósito realizado com sucesso!</p>";
         }
     }
 
     public function transfere($valorTransferido, $contaDestino)
     {
-        if ($valorTransferido > $this->getSaldo()) {
+        if ($valorTransferido > $this->saldo) {
             echo "Saldo indisponível";
         } else {
             $this->saca($valorTransferido);
@@ -50,28 +50,13 @@ class Conta
         return $this->cpfTitular;
     }
 
-    public function setCpfTitular($cpfTitular)
-    {
-        $this->cpfTitular = $cpfTitular;
-    }
-
     public function getNomeTitular()
     {
         return $this->nomeTitular;
     }
 
-    public function setNomeTitular($nomeTitular)
-    {
-        $this->nomeTitular = $nomeTitular;
-    }
-
     public function getSaldo()
     {
         return $this->saldo;
-    }
-
-    public function setSaldo($saldo)
-    {
-        $this->saldo = $saldo;
     }
 }
