@@ -4,7 +4,7 @@ class Documento
 {
     private $cpf;
 
-    public function __construct(string $cpf)
+    public function __construct($cpf)
     {
         $this->validaCpf($cpf);
         $this->cpf = $cpf;

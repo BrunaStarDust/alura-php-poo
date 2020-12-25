@@ -1,27 +1,18 @@
 <?php
+require_once 'Pessoa.php';
 
-class Titular
+class Titular extends Pessoa
 {
-    private $documento;
-    private $nome;
+    private $endereco;
 
-    public function __construct(Documento $documento, string $nome)
+    public function __construct($documento, $nome, $endereco)
     {
-        $this->documento = $documento;
-        $this->validaNome($nome);
-        $this->nome = $nome;
+        parent::__construct($documento, $nome);
+        $this->endereco = $endereco;
     }
 
-    public function getNome()
+    public function getEndereco()
     {
-        return $this->nome;
-    }
-
-    private function validaNome(string $nome)
-    {
-        if (strlen($nome) < 5) {
-            echo "<p>Nome precisa ter pelo menos 5 caracteres</p>";
-            exit();
-        }
+        return $this->endereco->formataEndereco();
     }
 }

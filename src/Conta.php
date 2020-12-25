@@ -6,7 +6,7 @@ class Conta
     private $saldo;
     private static $numeroDeContas;
 
-    public function __construct(Titular $titular)
+    public function __construct($titular)
     {
         $this->titular = $titular;
         $this->saldo = 0;
