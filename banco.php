@@ -8,12 +8,15 @@
 <body>
     <pre>
         <?php
-        require_once 'src/Model/Documento.php';
-        require_once 'src/Model/Endereco.php';
-        require_once 'src/Model/Pessoa.php';
-        require_once 'src/Model/Conta/Titular.php';
-        require_once 'src/Model/Conta/Conta.php';
-        require_once 'src/Model/Funcionario.php';
+        spl_autoload_register(function (string $nomeCompletoDaClasse) {
+            $caminhoArquivo = str_replace('Alura\\Banco', 'src', $nomeCompletoDaClasse);
+            $caminhoArquivo = str_replace('\\', DIRECTORY_SEPARATOR, $caminhoArquivo);
+            $caminhoArquivo .= '.php';
+
+            if (file_exists($caminhoArquivo)) {
+                require_once $caminhoArquivo;
+            }
+        });
 
         use Alura\Banco\Model\Pessoa;
         use Alura\Banco\Model\Conta\Conta;
