@@ -8,12 +8,19 @@
 <body>
     <pre>
         <?php
-        require_once 'src/Conta.php';
-        require_once 'src/Pessoa.php';
-        require_once 'src/Titular.php';
-        require_once 'src/Documento.php';
-        require_once 'src/Endereco.php';
-        require_once 'src/Funcionario.php';
+        require_once 'src/Model/Documento.php';
+        require_once 'src/Model/Endereco.php';
+        require_once 'src/Model/Pessoa.php';
+        require_once 'src/Model/Conta/Titular.php';
+        require_once 'src/Model/Conta/Conta.php';
+        require_once 'src/Model/Funcionario.php';
+
+        use Alura\Banco\Model\Pessoa;
+        use Alura\Banco\Model\Conta\Conta;
+        use Alura\Banco\Model\Conta\Titular;
+        use Alura\Banco\Model\Documento;
+        use Alura\Banco\Model\Endereco;
+        use Alura\Banco\Model\Funcionario;
 
         //$p1 = new Pessoa('Teste', new Documento('787.787.787-78'));]
 

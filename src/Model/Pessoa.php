@@ -1,5 +1,7 @@
 <?php
 
+namespace Alura\Banco\Model;
+
 abstract class Pessoa
 {
     protected $documento;
