@@ -12,7 +12,7 @@
         require_once 'src/Titular.php';
         require_once 'src/Documento.php';
 
-        $c1 = new Conta(new Titular(new Documento('454.454.454-77'), 'Moquidésia'));
+        $c1 = new Conta(new Titular(new Documento('454.454.454-45'), 'Moquidésia'));
         $c2 = new Conta(new Titular(new Documento('787.787.787-77'), 'Irineu'));
         print_r($c1);
         echo '<hr>';
