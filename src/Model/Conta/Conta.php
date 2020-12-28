@@ -2,11 +2,11 @@
 
 namespace Alura\Banco\Model\Conta;
 
-class Conta
+abstract class Conta
 {
-    private $titular;
-    private $saldo;
-    private static $numeroDeContas;
+    protected $titular;
+    protected $saldo;
+    protected static $numeroDeContas;
 
     public function __construct($titular)
     {
@@ -20,35 +20,17 @@ class Conta
         self::$numeroDeContas--;
     }
 
-    public function saca($valorSacado)
-    {
-        if ($valorSacado > $this->saldo) {
-            echo "<p>Você não pode sacar</p>";
-        } else {
-            $this->saldo -= $valorSacado;
-            echo "<p>Saque realizado com sucesso!</p>";
-        }
-    }
+    abstract protected function saca($valorSacado);
 
-    public function deposita($valorDepositado)
-    {
-        if ($valorDepositado < 0) {
-            echo "<p>Você só pode depositar um valor positivo</p>";
-        } else {
-            $this->saldo += $valorDepositado;
-            echo "<p>Depósito realizado com sucesso!</p>";
-        }
-    }
+    abstract protected function deposita($valorDepositado);
 
-    public function transfere($valorTransferido, $contaDestino)
+    abstract protected function transfere($valorTransferido, $contaDestino);
+
+    abstract protected function percentualTarifa();
+
+    public function getTitular()
     {
-        if ($valorTransferido > $this->saldo) {
-            echo "Saldo indisponível";
-        } else {
-            $this->saca($valorTransferido);
-            $contaDestino->deposita($valorTransferido);
-            echo "<p>Transferência realizada com sucesso!</p>";
-        }
+        return $this->titular->getNome();
     }
 
     public function getSaldo()

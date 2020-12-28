@@ -8,18 +8,13 @@
 <body>
     <pre>
         <?php
-        spl_autoload_register(function (string $nomeCompletoDaClasse) {
-            $caminhoArquivo = str_replace('Alura\\Banco', 'src', $nomeCompletoDaClasse);
-            $caminhoArquivo = str_replace('\\', DIRECTORY_SEPARATOR, $caminhoArquivo);
-            $caminhoArquivo .= '.php';
 
-            if (file_exists($caminhoArquivo)) {
-                require_once $caminhoArquivo;
-            }
-        });
+        require_once 'autoload.php';
 
         use Alura\Banco\Model\Pessoa;
         use Alura\Banco\Model\Conta\Conta;
+        use Alura\Banco\Model\Conta\ContaCorrente;
+        use Alura\Banco\Model\Conta\ContaPoupanca;
         use Alura\Banco\Model\Conta\Titular;
         use Alura\Banco\Model\Documento;
         use Alura\Banco\Model\Endereco;
@@ -27,20 +22,20 @@
 
         //$p1 = new Pessoa('Teste', new Documento('787.787.787-78'));]
 
-        $docFunc1 = new Documento('656.656.656-65');
-        $func1 = new Funcionario($docFunc1, 'José Abreu', 'Bancário');
-        print_r($func1);
-        echo "<hr>";
+        // $docFunc1 = new Documento('656.656.656-65');
+        // $func1 = new Funcionario($docFunc1, 'José Abreu', 'Bancário');
+        // print_r($func1);
+        // echo "<hr>";
 
         $doc1 = new Documento('454.454.454-45');
         $end1 = new Endereco('Mauá', 'Nova Brasília', 'Rua ABC', '155');
         $t1 = new Titular($doc1, 'Moquidésia', $end1);
-        $c1 = new Conta($t1);
+        $c1 = new ContaCorrente($t1);
 
         $doc2 = new Documento('787.787.787-77');
         $end2 = new Endereco('Santo André', 'Parque Central', 'Rua das Flores', '2223');
         $t2 = new Titular($doc2, 'Irineu', $end2);
-        $c2 = new Conta($t2);
+        $c2 = new ContaPoupanca($t2);
 
         //echo "<p>{$t1->getEndereco()}</p>";
         //echo "<p>{$t1->getNome()}</p>";
@@ -51,24 +46,30 @@
         echo '<hr>';
         echo '<hr>';
 
-        // $c1->deposita(1000);
-        // print_r($c1);
-        // echo '<hr>';
-        // print_r($c2);
-        // echo '<hr>';
-        // echo '<hr>';
+        $c1->deposita(1000);
+        print_r($c1);
+        echo '<hr>';
+        print_r($c2);
+        echo '<hr>';
+        echo '<hr>';
 
-        // $c1->saca(100);
-        // print_r($c1);
-        // echo '<hr>';
-        // print_r($c2);
-        // echo '<hr>';
-        // echo '<hr>';
+        $c1->saca(121.34);
+        print_r($c1);
+        echo '<hr>';
+        print_r($c2);
+        echo '<hr>';
+        echo '<hr>';
 
-        // $c1->transfere(500, $c2);
-        // print_r($c1);
-        // echo '<hr>';
-        // print_r($c2);
+        $c1->transfere(500, $c2);
+        print_r($c1);
+        echo '<hr>';
+        print_r($c2);
+
+        $c2->saca(250);
+        print_r($c1);
+        echo '<hr>';
+        print_r($c2);
+
         ?>
     </pre>
 </body>
