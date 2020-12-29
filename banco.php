@@ -32,38 +32,39 @@
         $t2 = new Titular($doc2, 'Irineu', $end2);
         $c2 = new ContaPoupanca($t2);
 
-        //echo "<p>{$t1->getEndereco()}</p>";
+        echo $t1->nome;
+        //echo "<p>{$end1->__toString()}</p>";
         //echo "<p>{$t1->getNome()}</p>";
 
-        print_r($c1);
-        echo '<hr>';
-        print_r($c2);
-        echo '<hr>';
-        echo '<hr>';
+        // print_r($c1);
+        // echo '<hr>';
+        // print_r($c2);
+        // echo '<hr>';
+        // echo '<hr>';
 
-        $c1->deposita(1000);
-        print_r($c1);
-        echo '<hr>';
-        print_r($c2);
-        echo '<hr>';
-        echo '<hr>';
+        // $c1->deposita(1000);
+        // print_r($c1);
+        // echo '<hr>';
+        // print_r($c2);
+        // echo '<hr>';
+        // echo '<hr>';
 
-        $c1->saca(121.34);
-        print_r($c1);
-        echo '<hr>';
-        print_r($c2);
-        echo '<hr>';
-        echo '<hr>';
+        // $c1->saca(121.34);
+        // print_r($c1);
+        // echo '<hr>';
+        // print_r($c2);
+        // echo '<hr>';
+        // echo '<hr>';
 
-        $c1->transfere(500, $c2);
-        print_r($c1);
-        echo '<hr>';
-        print_r($c2);
+        // $c1->transfere(500, $c2);
+        // print_r($c1);
+        // echo '<hr>';
+        // print_r($c2);
 
-        $c2->saca(250);
-        print_r($c1);
-        echo '<hr>';
-        print_r($c2);
+        // $c2->saca(250);
+        // print_r($c1);
+        // echo '<hr>';
+        // print_r($c2);
 
         ?>
     </pre>

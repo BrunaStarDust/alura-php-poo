@@ -2,8 +2,9 @@
 
 namespace Alura\Banco\Model;
 
-class Endereco
+final class Endereco
 {
+    use AcessoPropriedades;
     private $cidade;
     private $bairro;
     private $rua;
@@ -15,11 +16,6 @@ class Endereco
         $this->bairro = $bairro;
         $this->rua = $rua;
         $this->numero = $numero;
-    }
-
-    public function formataEndereco()
-    {
-        return "{$this->rua}, {$this->numero}, {$this->bairro}, {$this->cidade}";
     }
 
     public function getCidade()
@@ -40,5 +36,10 @@ class Endereco
     public function getNumero()
     {
         return $this->numero;
+    }
+
+    public function __toString()
+    {
+        return "{$this->rua}, {$this->numero}, {$this->bairro}, {$this->cidade}";
     }
 }

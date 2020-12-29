@@ -2,7 +2,7 @@
 
 namespace Alura\Banco\Model\Funcionario;
 
-use Alura\Banco\Autenticavel;
+use Alura\Banco\Model\Autenticavel;
 
 class Diretor extends Funcionario implements Autenticavel
 {

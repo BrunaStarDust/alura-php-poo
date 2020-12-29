@@ -1,6 +1,6 @@
 <?php
 
-namespace Alura\Banco;
+namespace Alura\Banco\Model;
 
 interface Autenticavel
 {
